@@ -1,0 +1,35 @@
+/////////////////
+// DEMO STYLING
+/////////////////
+@import url('//fonts.googleapis.com/css?family=Inconsolata&text=1234567890/LegitGrd');
+
+body { 
+  font-family: inconsolata, monospace; 
+  font-weight: bold;
+  color: black;
+}
+
+.container {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.grid > * {
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+  height: 50px;
+  background: RoyalBlue;
+  margin-bottom: 20px;
+  color: white;
+  -webkit-transition: width 150ms;
+  -moz-transition: width 150ms;
+  -o-transition: width 150ms;
+  transition: width 150ms;
+}
+
+@media screen and (max-width: 480px) {
+  .grid > * {
+    width: 100%;
+  }
+}

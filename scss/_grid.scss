@@ -1,0 +1,67 @@
+// HELPER FUNCTIONS
+@function calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH) {
+  $g: $GUTTER_PIXEL_WIDTH;
+  $c: $CONTAINER_WIDTH;
+  @return $g / ($c + $g) * 100%;
+}
+
+@function calcMarginOffset($GUTTER_PERCENTAGE_WIDTH) {
+  $g: $GUTTER_PERCENTAGE_WIDTH;
+  @return 100% * $g / (100% - $g) * -1;
+}
+
+@function calcBlockWidth($NUM_BLOCKS_PER_ROW, $GUTTER_PERCENTAGE_WIDTH) {
+  $n: $NUM_BLOCKS_PER_ROW;
+  $g: $GUTTER_PERCENTAGE_WIDTH;
+  @return (100% - ($n * $g)) / $n;
+}
+
+$CONTAINER_WIDTH: 960; // in px, no units
+$CONTAINER_GUTTER: 5%; // needs units: any units work, flex or fixed
+$GUTTER_PIXEL_WIDTH: 20; // in px, no units
+$GUTTER_PERCENTAGE_WIDTH: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH);
+
+.container {
+  max-width: $CONTAINER_WIDTH + px;
+  min-width: 320px;
+  padding: 0 $CONTAINER_GUTTER;
+  box-sizing: border-box;
+}
+
+.grid {
+  margin-left: calcMarginOffset($GUTTER_PERCENTAGE_WIDTH);
+}
+
+.grid > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: $GUTTER_PERCENTAGE_WIDTH;
+}
+
+.grid-half {
+  width: calcBlockWidth(2, $GUTTER_PERCENTAGE_WIDTH);
+}
+
+.grid-third {
+  width: calcBlockWidth(3, $GUTTER_PERCENTAGE_WIDTH);
+}
+
+.grid-twoThirds {
+  width: calcBlockWidth(1.5, $GUTTER_PERCENTAGE_WIDTH);
+}
+
+.grid-fourth {
+  width: calcBlockWidth(4, $GUTTER_PERCENTAGE_WIDTH);
+}
+
+.grid-seventh {
+   width: calcBlockWidth(7, $GUTTER_PERCENTAGE_WIDTH);
+}
+
+.grid-topAlign {
+  vertical-align: top;
+}
+
+.grid-bottomAlign {
+  vertical-align: bottom;
+}
