@@ -10,8 +10,8 @@
   @return 100% * $g / (100% - $g) * -1;
 }
 
-@function calcBlockWidth($NUM_BLOCKS_PER_ROW, $GUTTER_PERCENTAGE_WIDTH) {
-  $n: $NUM_BLOCKS_PER_ROW;
+@function calcBlockWidth($COL_PERCENTAGE,  $GUTTER_PERCENTAGE_WIDTH) {
+  $n: pow($COL_PERCENTAGE, -1);
   $g: $GUTTER_PERCENTAGE_WIDTH;
   @return (100% - ($n * $g)) / $n;
 }
@@ -20,6 +20,8 @@ $CONTAINER_WIDTH: 960; // in px, no units
 $CONTAINER_GUTTER: 5%; // needs units: any units work, flex or fixed
 $GUTTER_PIXEL_WIDTH: 20; // in px, no units
 $GUTTER_PERCENTAGE_WIDTH: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH);
+
+
 
 .container {
   max-width: $CONTAINER_WIDTH + px;
@@ -32,36 +34,43 @@ $GUTTER_PERCENTAGE_WIDTH: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_W
   margin-left: calcMarginOffset($GUTTER_PERCENTAGE_WIDTH);
 }
 
-.grid > * {
+[class*='col-'] {
   display: inline-block;
-  vertical-align: middle;
   margin-left: $GUTTER_PERCENTAGE_WIDTH;
 }
 
-.grid-half {
-  width: calcBlockWidth(2, $GUTTER_PERCENTAGE_WIDTH);
+.col-1-2 { width: calcBlockWidth( 1/2, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-3 { width: calcBlockWidth( 1/3, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-4 { width: calcBlockWidth( 1/4, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-5 { width: calcBlockWidth( 1/5, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-6 { width: calcBlockWidth( 1/6, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-7 { width: calcBlockWidth( 1/7, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-8 { width: calcBlockWidth( 1/8, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-9 { width: calcBlockWidth( 1/9, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-10 { width: calcBlockWidth( 1/10, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-11 { width: calcBlockWidth( 1/11, $GUTTER_PERCENTAGE_WIDTH ); }
+.col-1-12 { width: calcBlockWidth( 1/12, $GUTTER_PERCENTAGE_WIDTH ); }
+
+// Configuring odd column widths
+.col-2-3 { width: calcBlockWidth( 2/3, $GUTTER_PERCENTAGE_WIDTH); }
+.col-5-7 { width: calcBlockWidth( 5/7, $GUTTER_PERCENTAGE_WIDTH); }
+.col-2-7 { width: calcBlockWidth( 2/7, $GUTTER_PERCENTAGE_WIDTH); }
+
+
+.grid-1-7 {
+   width: calcBlockWidth(1/7, $GUTTER_PERCENTAGE_WIDTH);
 }
 
-.grid-third {
-  width: calcBlockWidth(3, $GUTTER_PERCENTAGE_WIDTH);
-}
-
-.grid-twoThirds {
-  width: calcBlockWidth(1.5, $GUTTER_PERCENTAGE_WIDTH);
-}
-
-.grid-fourth {
-  width: calcBlockWidth(4, $GUTTER_PERCENTAGE_WIDTH);
-}
-
-.grid-seventh {
-   width: calcBlockWidth(7, $GUTTER_PERCENTAGE_WIDTH);
-}
-
-.grid-topAlign {
+.col-top {
   vertical-align: top;
 }
 
-.grid-bottomAlign {
+.col-bottom {
   vertical-align: bottom;
+}
+
+@media screen and (max-width: 480px) {
+  .grid > * {
+    width: 100%;
+  }
 }

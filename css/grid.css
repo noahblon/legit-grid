@@ -1,0 +1,34 @@
+.container {
+  max-width: 960px;
+  min-width: 320px;
+  padding: 0 5%;
+  box-sizing: border-box; }
+
+.grid {
+  margin-left: -2.08333%; }
+
+.grid > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2.04082%; }
+
+.grid-half {
+  width: 47.95918%; }
+
+.grid-third {
+  width: 31.29252%; }
+
+.grid-twoThirds {
+  width: 64.62585%; }
+
+.grid-fourth {
+  width: 22.95918%; }
+
+.grid-seventh {
+  width: 12.2449%; }
+
+.grid-topAlign {
+  vertical-align: top; }
+
+.grid-bottomAlign {
+  vertical-align: bottom; }
