@@ -1,7 +1,3 @@
-/////////////////
-// DEMO STYLING
-/////////////////
-
 body { 
   font-family: helvetica, sans-serif; 
   font-weight: bold;
@@ -19,7 +15,7 @@ body {
   line-height: 40px;
   height: 40px;
   background: RoyalBlue;
-  margin-bottom: $GUTTER_PIXEL_WIDTH + px;
+  margin-bottom: 40px;
   color: white;
   -webkit-transition: width 150ms;
   -moz-transition: width 150ms;
@@ -34,7 +30,6 @@ body {
 .col-middle {
   vertical-align: middle;
 }
-
 h1, a { 
   display: inline-block; 
   line-height: 2em; 

@@ -1,26 +1,31 @@
-// HELPER FUNCTIONS
+
+// CONFIG
+$CONTAINER_WIDTH: 960; // in px, no units
+$CONTAINER_GUTTER: 5%; // needs units: any units work, flex or fixed
+$GUTTER_PIXEL_WIDTH: 20; // in px, no units
+
+// HELPER FUNCTIONS & MIXINS
 @function calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH) {
   $g: $GUTTER_PIXEL_WIDTH;
   $c: $CONTAINER_WIDTH;
   @return $g / ($c + $g) * 100%;
 }
 
-@function calcMarginOffset($GUTTER_PERCENTAGE_WIDTH) {
-  $g: $GUTTER_PERCENTAGE_WIDTH;
-  @return 100% * $g / (100% - $g) * -1;
+@mixin column-width($COL_PERCENTAGE) {
+  $n: 1/$COL_PERCENTAGE;
+  $g: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH);
+  width: (100% - ($n * $g)) / $n;
 }
 
-@function calcBlockWidth($COL_PERCENTAGE,  $GUTTER_PERCENTAGE_WIDTH) {
-  $n: pow($COL_PERCENTAGE, -1);
-  $g: $GUTTER_PERCENTAGE_WIDTH;
-  @return (100% - ($n * $g)) / $n;
+@mixin grid-margin-offset() {
+  $g: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH);
+  margin-left: 100% * $g / (100% - $g) * -1;
 }
 
-$CONTAINER_WIDTH: 960; // in px, no units
-$CONTAINER_GUTTER: 5%; // needs units: any units work, flex or fixed
-$GUTTER_PIXEL_WIDTH: 20; // in px, no units
-$GUTTER_PERCENTAGE_WIDTH: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH);
-
+@mixin gutter-margin() {
+  $g: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_WIDTH);
+  margin-left: $g;
+} 
 
 
 .container {
@@ -31,35 +36,36 @@ $GUTTER_PERCENTAGE_WIDTH: calcGutterPercentage($CONTAINER_WIDTH, $GUTTER_PIXEL_W
 }
 
 .grid {
-  margin-left: calcMarginOffset($GUTTER_PERCENTAGE_WIDTH);
+  @include grid-margin-offset;
 }
 
 [class*='col-'] {
   display: inline-block;
-  margin-left: $GUTTER_PERCENTAGE_WIDTH;
+  @include gutter-margin;
 }
 
-.col-1-2 { width: calcBlockWidth( 1/2, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-3 { width: calcBlockWidth( 1/3, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-4 { width: calcBlockWidth( 1/4, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-5 { width: calcBlockWidth( 1/5, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-6 { width: calcBlockWidth( 1/6, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-7 { width: calcBlockWidth( 1/7, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-8 { width: calcBlockWidth( 1/8, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-9 { width: calcBlockWidth( 1/9, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-10 { width: calcBlockWidth( 1/10, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-11 { width: calcBlockWidth( 1/11, $GUTTER_PERCENTAGE_WIDTH ); }
-.col-1-12 { width: calcBlockWidth( 1/12, $GUTTER_PERCENTAGE_WIDTH ); }
+// CONFIGURE YOUR COLUMNS WITH THIS SIMPLE API
+.col-1-2 { @include column-width(1/2); }
+.col-1-3 { @include column-width(1/3); }
+.col-1-4 { @include column-width(1/4); }
+.col-1-5 { @include column-width(1/5); }
+.col-1-6 { @include column-width(1/6); }
+.col-1-7 { @include column-width(1/7); }
+.col-1-8 { @include column-width(1/8); }
+.col-1-9 { @include column-width(1/9); }
+.col-1-10 { @include column-width(1/10); }
+.col-1-11 { @include column-width(1/11); }
+.col-1-12 { @include column-width(1/12); }
+.col-1-13 { @include column-width(1/13); }
+.col-1-14 { @include column-width(1/14); }
+.col-1-15 { @include column-width(1/15); }
+.col-1-16 { @include column-width(1/16); }
 
 // Configuring odd column widths
-.col-2-3 { width: calcBlockWidth( 2/3, $GUTTER_PERCENTAGE_WIDTH); }
-.col-5-7 { width: calcBlockWidth( 5/7, $GUTTER_PERCENTAGE_WIDTH); }
-.col-2-7 { width: calcBlockWidth( 2/7, $GUTTER_PERCENTAGE_WIDTH); }
+.col-2-3 { @include column-width(2/3); }
+.col-5-7 { @include column-width(5/7); }
+.col-2-7 { @include column-width(2/7); }
 
-
-.grid-1-7 {
-   width: calcBlockWidth(1/7, $GUTTER_PERCENTAGE_WIDTH);
-}
 
 .col-top {
   vertical-align: top;
