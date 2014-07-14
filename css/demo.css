@@ -1,26 +1,32 @@
-@import url("//fonts.googleapis.com/css?family=Inconsolata&text=1234567890/LegitGrd");
-body {
-  font-family: inconsolata, monospace;
-  font-weight: bold;
-  color: black; }
+body
+  font-family: helvetica, sans-serif
+  font-weight: bold
+  color: black
 
-.container {
-  margin: 0 auto;
-  box-sizing: border-box; }
+.container
+  margin: 0 auto
+  box-sizing: border-box
 
-.grid > * {
-  font-size: 16px;
-  text-align: center;
-  line-height: 50px;
-  height: 50px;
-  background: RoyalBlue;
-  margin-bottom: 20px;
-  color: white;
-  -webkit-transition: width 150ms;
-  -moz-transition: width 150ms;
-  -o-transition: width 150ms;
-  transition: width 150ms; }
+[class*='col-']
+  font-size: 14px
+  text-align: center
+  line-height: 40px
+  height: 40px
+  background: RoyalBlue
+  margin-bottom: $GUTTER_PIXEL_WIDTH + px
+  color: white
+  -webkit-transition: width 150ms
+  -moz-transition: width 150ms
+  -o-transition: width 150ms
+  transition: width 150ms
 
-@media screen and (max-width: 480px) {
-  .grid > * {
-    width: 100%; } }
+.col-bottom
+  vertical-align: bottom
+
+.col-middle
+  vertical-align: middle
+
+h1, a
+  display: inline-block
+  line-height: 2em
+  margin: 0 20px 0 0
