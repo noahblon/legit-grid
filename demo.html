@@ -1,133 +1,62 @@
-<h1>Legit Grid</h1><a href="https://github.com/noahblon/legit-grid">Github</a>
-<p>A simple Sass fluid grid generator with fluid gutters. IE8+.</p>
-<div class="container">  
-  <div class="grid">
- 
-    <!-- 
-         Comments kill inline block space.
-         Not ideal but my preferred solution
-         more at: http://css-tricks.com/fighting-the-space-between-inline-block-elements/
-    -->
-    
-    <h3>Configurable to any number of columns</h3>
-       <div class="col-1-2">1/2</div><!--
-    --><div class="col-1-2">1/2</div><!--
-    
-    --><div class="col-1-3">1/3</div><!--
-    --><div class="col-1-3">1/3</div><!--
-    --><div class="col-1-3">1/3</div><!--
+<html>
+<head>
+</head>
+<body>
+    <h1>Legit Grid</h1><a href="https://github.com/noahblon/legit-grid" target="_blank">Github</a>
+    <p>A Sass responsive grid system with fluid gutters. IE8+.</p>
+    <div class="container">  
+      <div class="grid">
+     
+        <!-- 
+             Comments kill inline block space.
+             Not ideal but my preferred solution
+             more at: http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+        -->
+        
+        <h3>Configure columns with ratios, 1/2, 1/4, 1/3 etc.</h3>
+           <div class="col-1-1">1/1</div><!--
+        --><div class="col-1-2">1/2</div><!--
+        --><div class="col-1-2">1/2</div><!--
+        
+        --><div class="col-1-3">1/3</div><!--
+        --><div class="col-1-3">1/3</div><!--
+        --><div class="col-1-3">1/3</div><!--
 
-    --><div class="col-1-4">1/4</div><!--
-    --><div class="col-1-4">1/4</div><!--
-    --><div class="col-1-4">1/4</div><!--
-    --><div class="col-1-4">1/4</div><!--
+        --><div class="col-1-4">1/4</div><!--
+        --><div class="col-1-4">1/4</div><!--
+        --><div class="col-1-4">1/4</div><!--
+        --><div class="col-1-4">1/4</div>
 
-    --><div class="col-1-5">1/5</div><!--
-    --><div class="col-1-5">1/5</div><!--
-    --><div class="col-1-5">1/5</div><!--
-    --><div class="col-1-5">1/5</div><!--
-    --><div class="col-1-5">1/5</div><!--
+        <h3>Span multiple columns, eg 2/3, 3/5</h3>
+           <div class="col-2-3">2/3</div><!--
+        --><div class="col-1-3">1/3</div><!--
+        --><div class="col-2-5">2/5</div><!--
+        --><div class="col-3-5">3/5</div><!--
+        --><div class="col-3-7">3/7</div><!--
+        --><div class="col-4-7">4/7</div>
 
-    --><div class="col-1-6">1/6</div><!--
-    --><div class="col-1-6">1/6</div><!--
-    --><div class="col-1-6">1/6</div><!--
-    --><div class="col-1-6">1/6</div><!--
-    --><div class="col-1-6">1/6</div><!--
-    --><div class="col-1-6">1/6</div><!--
+        <h3>Configurable vertical alignment</h3>
+        <h4>Top Align</h4>
+           <div class="col-1-3 col-top">1/3</div><!--
+        --><div class="col-1-3 col-top" style="height: 150px; line-height: 150px;">1/3</div><!--
+        --><div class="col-1-3 col-top">1/3</div>
+        
+        <h4>Middle Align (default)</h4>
+        <div class="col-1-3">1/3</div><!--
+        --><div class="col-1-3" style="height: 150px; line-height: 150px;">1/3</div><!--
+        --><div class="col-1-3">1/3</div>
+        
+        <h4>Bottom Align</h4>
+        <div class="col-1-3 col-bottom">1/3</div><!--
+        --><div class="col-1-3 col-bottom" style="height: 150px; line-height: 150px;">1/3</div><!--
+        --><div class="col-1-3 col-bottom">1/3</div>
 
-    --><div class="col-1-7">1/7</div><!--
-    --><div class="col-1-7">1/7</div><!--
-    --><div class="col-1-7">1/7</div><!--
-    --><div class="col-1-7">1/7</div><!--
-    --><div class="col-1-7">1/7</div><!--
-    --><div class="col-1-7">1/7</div><!--
-    --><div class="col-1-7">1/7</div><!--
-
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-    --><div class="col-1-8">1/8</div><!--
-
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-    --><div class="col-1-9">1/9</div><!--
-
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-    --><div class="col-1-10">1/10</div><!--
-
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-    --><div class="col-1-11">1/11</div><!--
-
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div><!--
-    --><div class="col-1-12">1/12</div>
-    
-    <h3>Span multiple columns</h3>
-       <div class="col-2-3">2/3</div><!--
-    --><div class="col-1-3">1/3</div><!--
-    --><div class="col-1-2">1/2</div><!--
-    --><div class="col-1-4">1/4</div><!--
-    --><div class="col-1-4">1/4</div>
-    <h4>...including weird numbers of columns</h4>
-    <div class="col-5-7">5/7</div><!--
-    --><div class="col-2-7">2/7</div>
-    
-    <h3>Configurable vertical alignment</h3>
-    <h4>Top Align</h4>
-       <div class="col-1-3 col-top">1/3</div><!--
-    --><div class="col-1-3 col-top" style="height: 150px; line-height: 150px;">1/3</div><!--
-    --><div class="col-1-3 col-top">1/3</div>
-    
-    <h4>Middle Align (default)</h4>
-    <div class="col-1-3">1/3</div><!--
-    --><div class="col-1-3" style="height: 150px; line-height: 150px;">1/3</div><!--
-    --><div class="col-1-3">1/3</div>
-    
-    <h4>Bottom Align</h4>
-    <div class="col-1-3 col-bottom">1/3</div><!--
-    --><div class="col-1-3 col-bottom" style="height: 150px; line-height: 150px;">1/3</div><!--
-    --><div class="col-1-3 col-bottom">1/3</div>
-
-    <h4>Mixed</h4>
-    <div class="col-1-3 col-top">1/3</div><!--
-    --><div class="col-1-3" style="height: 150px; line-height: 150px;">1/3</div><!--
-    --><div class="col-1-3 col-bottom">1/3</div><!--
-  </div>
-  
-</div>
+        <h4>Mixed</h4>
+        <div class="col-1-3 col-top">1/3</div><!--
+        --><div class="col-1-3" style="height: 150px; line-height: 150px;">1/3</div><!--
+        --><div class="col-1-3 col-bottom">1/3</div>
+      </div>
+      
+    </div>
+</body>
+</html>
